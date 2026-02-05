@@ -155,33 +155,16 @@
   background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
 }
 
-/* ── Intro quote block ── */
-.pv-intro__inner {
-  position: relative;
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 2.5rem 0 2.5rem 2.5rem;
-}
-
-.pv-intro__accent {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  border-radius: 4px;
-  background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-light));
-}
-
-.pv-intro__text {
-  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
-  line-height: 1.85;
-  color: var(--color-text-light);
-  font-style: italic;
-  margin: 0;
-}
-
 /* ── Timeline / Journey ── */
+.pv-journey__subtitle {
+  display: block;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.75;
+  color: var(--color-text-light);
+  max-width: 580px;
+  margin: 0.75rem auto 0;
+}
+
 .pv-journey {
   overflow: visible;
 }

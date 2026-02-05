@@ -166,27 +166,22 @@ export function PrimaVisita() {
         </div>
       </section>
 
-      {/* ── Intro ── */}
-      <section className="pv-intro section">
-        <div className="container">
-          <AnimatedSection animation="fade-up" className="pv-intro__inner">
-            <div className="pv-intro__accent" />
-            <p className="pv-intro__text">
-              La prima visita è molto più di un semplice trattamento: è il momento in cui costruiamo 
-              insieme le basi del tuo percorso verso il benessere. Attraverso un'attenta analisi della 
-              tua storia clinica e una valutazione approfondita, identifico le cause profonde del tuo 
-              disagio e definisco la strategia terapeutica più efficace per te.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* ── Timeline Steps ── */}
       <section className="pv-journey section section--alt">
         <div className="container">
           <AnimatedSection animation="fade-up" className="section__header">
             <span className="section__label">Il percorso</span>
             <AnimatedText text="Come si svolge la visita" as="h2" className="section__title" splitBy="word" animation="fade-up" staggerDelay={0.05} />
+            <AnimatedText
+              text="Analizziamo insieme la tua storia clinica e individuiamo le cause profonde del tuo disagio per definire il percorso terapeutico più efficace."
+              as="p"
+              className="pv-journey__subtitle"
+              splitBy="word"
+              animation="blur-up"
+              staggerDelay={0.025}
+              duration={0.45}
+              threshold={0.3}
+            />
           </AnimatedSection>
 
           <div className="pv-timeline">
