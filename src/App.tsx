@@ -21,12 +21,13 @@ import { Cookie } from './pages/Cookie';
 
 import './App.css';
 
-// Scroll to top on route change
+// Scroll to top on route change (instant, not smooth)
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Use instant scroll to avoid seeing the scroll animation on page change
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname]);
 
   return null;

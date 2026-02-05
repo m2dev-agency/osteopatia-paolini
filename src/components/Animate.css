@@ -551,3 +551,58 @@
   80% { transform: translate(3%, 35%); }
   90% { transform: translate(-10%, 10%); }
 }
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   Reduce animation distances to prevent overflow
+   ============================================ */
+
+@media (max-width: 768px) {
+  .animate--fade-up {
+    transform: translateY(30px);
+  }
+  
+  .animate--fade-down {
+    transform: translateY(-30px);
+  }
+  
+  .animate--fade-left {
+    transform: translateX(30px);
+  }
+  
+  .animate--fade-right {
+    transform: translateX(-30px);
+  }
+  
+  .animate--scale-up {
+    transform: scale(0.9) translateY(20px);
+  }
+  
+  .animate--blur-up {
+    transform: translateY(20px);
+  }
+  
+  .animate--slide-up,
+  .animate--slide-down {
+    transform: translateY(50%);
+  }
+  
+  .animate--slide-left,
+  .animate--slide-right {
+    transform: translateX(50%);
+  }
+  
+  .animate--flip-up {
+    transform: perspective(800px) rotateX(25deg) translateY(20px);
+  }
+  
+  /* Reduce hover lift on mobile */
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Disable grain on mobile for performance */
+  .grain::before {
+    display: none;
+  }
+}
