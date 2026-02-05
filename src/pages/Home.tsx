@@ -216,21 +216,18 @@ export function Home() {
 
         <div className="container">
           <div className="studio-section__content">
-            <AnimatedSection animation="fade-up" className="studio-section__header">
-              <p className="studio-section__eyebrow">Vieni a trovarmi</p>
-              <AnimatedText
-                text="Lo studio"
+            <AnimatedSection animation="fade-up" className="studio-section__cta">
+              <AnimatedText 
+                text="Pronto a ritrovare il benessere?" 
                 as="h2"
                 className="studio-section__title"
                 splitBy="word"
                 animation="blur-up"
                 staggerDelay={0.06}
               />
-              <div className="studio-section__location-pill">
-                <span className="studio-section__location-dot" />
-                Chieti Scalo, Abruzzo
-              </div>
+              <p className="studio-section__subtitle">Prenota la tua visita osteopatica e inizia il tuo percorso verso una vita senza dolore.</p>
             </AnimatedSection>
+
 
             <div className="studio-cards">
               <AnimatedSection animation="fade-up" delay={0.1} className="studio-card">
@@ -244,6 +241,9 @@ export function Home() {
                   <div className="studio-card__body">
                     <h3>Indirizzo</h3>
                     <p>{contactInfo.address.full}</p>
+                    <p style={{ marginTop: '0.25rem' }}>
+                      <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+                    </p>
                   </div>
                 </div>
                 <a
@@ -275,42 +275,16 @@ export function Home() {
                   </div>
                 </div>
               </AnimatedSection>
-
-              <AnimatedSection animation="fade-up" delay={0.3} className="studio-card">
-                <div className="studio-card__left">
-                  <div className="studio-card__icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                  </div>
-                  <div className="studio-card__body">
-                    <h3>Contatti</h3>
-                    <p><a href={`tel:${contactInfo.phone}`}>{contactInfo.phoneDisplay}</a></p>
-                    <p><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
-                  </div>
-                </div>
-              </AnimatedSection>
             </div>
+
+            <AnimatedSection animation="fade-up" delay={0.3} className="studio-section__buttons">
+              <CTAButtons variant="section" />
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* CTA Finale */}
-      <section className="section section--cta">
-        <div className="container">
-          <AnimatedSection animation="blur-up" className="cta-section">
-            <AnimatedText 
-              text="Pronto a ritrovare il benessere?" 
-              as="h2"
-              splitBy="word"
-              animation="fade-up"
-              staggerDelay={0.04}
-            />
-            <p>Prenota la tua visita osteopatica e inizia il tuo percorso verso una vita senza dolore.</p>
-            <CTAButtons variant="hero" />
-          </AnimatedSection>
-        </div>
-      </section>
+
     </main>
   );
 }

@@ -9,7 +9,7 @@ export const contactInfo = {
     cap: '66100',
     region: 'Abruzzo',
     country: 'Italia',
-    full: 'Via Andrea Delitio 7, 66100 Chieti Scalo (CH)'
+    full: 'Via Andrea Delitio 7, 66100 Chieti Scalo'
   },
   phone: '+39 333 1234567',
   phoneDisplay: '333 123 4567',
