@@ -198,52 +198,98 @@ export function Home() {
         </div>
       </section>
 
-      {/* Dove Siamo */}
-      <section className="section section--alt">
+      {/* Lo Studio */}
+      <section className="studio-section">
+        <div className="studio-section__map-wrap">
+          <iframe
+            src={contactInfo.mapEmbedUrl}
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Mappa Studio Osteopatia Paolini"
+          />
+          <div className="studio-section__map-fade" />
+        </div>
+
         <div className="container">
-          <AnimatedSection animation="fade-up" className="section__header">
-            <AnimatedText 
-              text="Lo studio a Chieti Scalo" 
-              as="h2" 
-              className="section__title"
-              splitBy="word"
-              animation="fade-up"
-              staggerDelay={0.05}
-            />
-          </AnimatedSection>
-          <div className="location">
-            <div className="location__info">
-              <AnimatedSection animation="fade-up" delay={0.1} className="location__card hover-lift">
-                <h3>Indirizzo</h3>
-                <p>{contactInfo.address.full}</p>
+          <div className="studio-section__content">
+            <AnimatedSection animation="fade-up" className="studio-section__header">
+              <AnimatedText
+                text="Lo studio"
+                as="h2"
+                className="studio-section__title"
+                splitBy="word"
+                animation="blur-up"
+                staggerDelay={0.06}
+              />
+              <p className="studio-section__location">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Chieti Scalo
+              </p>
+            </AnimatedSection>
+
+            <div className="studio-cards">
+              <AnimatedSection animation="fade-up" delay={0.1} className="studio-card">
+                <div className="studio-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div className="studio-card__body">
+                  <h3>Indirizzo</h3>
+                  <p>{contactInfo.address.full}</p>
+                </div>
               </AnimatedSection>
-              <AnimatedSection animation="fade-up" delay={0.2} className="location__card hover-lift">
-                <h3>Orari</h3>
-                <p><strong>{contactInfo.hours.weekdays.days}:</strong> {contactInfo.hours.weekdays.hours}</p>
-                <p><strong>{contactInfo.hours.saturday.days}:</strong> {contactInfo.hours.saturday.hours}</p>
+
+              <AnimatedSection animation="fade-up" delay={0.2} className="studio-card">
+                <div className="studio-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div className="studio-card__body">
+                  <h3>Orari</h3>
+                  <p><strong>{contactInfo.hours.weekdays.days}</strong><br/>{contactInfo.hours.weekdays.hours}</p>
+                  <p><strong>{contactInfo.hours.saturday.days}</strong><br/>{contactInfo.hours.saturday.hours}</p>
+                </div>
               </AnimatedSection>
-              <AnimatedSection animation="fade-up" delay={0.3} className="location__card hover-lift">
-                <h3>Contatti</h3>
-                <p><a href={`tel:${contactInfo.phone}`}>{contactInfo.phoneDisplay}</a></p>
-                <p><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
+
+              <AnimatedSection animation="fade-up" delay={0.3} className="studio-card">
+                <div className="studio-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <div className="studio-card__body">
+                  <h3>Contatti</h3>
+                  <p><a href={`tel:${contactInfo.phone}`}>{contactInfo.phoneDisplay}</a></p>
+                  <p><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
+                </div>
               </AnimatedSection>
-              <AnimatedSection animation="fade-up" delay={0.4} className="location__card hover-lift">
-                <h3>Parcheggio</h3>
-                <p>{contactInfo.parking}</p>
+
+              <AnimatedSection animation="fade-up" delay={0.4} className="studio-card">
+                <div className="studio-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="1" y="3" width="15" height="13"/>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                    <circle cx="5.5" cy="18.5" r="2.5"/>
+                    <circle cx="18.5" cy="18.5" r="2.5"/>
+                  </svg>
+                </div>
+                <div className="studio-card__body">
+                  <h3>Parcheggio</h3>
+                  <p>{contactInfo.parking}</p>
+                </div>
               </AnimatedSection>
             </div>
-            <AnimatedSection animation="clip-left" delay={0.2} className="location__map">
-              <iframe
-                src={contactInfo.mapEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Mappa Studio Osteopatia Paolini"
-              ></iframe>
-            </AnimatedSection>
           </div>
         </div>
       </section>
