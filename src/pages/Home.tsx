@@ -1,18 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
-import { ServiceCard } from '../components/ServiceCard';
+import { ServicesShowcase } from '../components/ServicesShowcase';
 import { TestimonialCard } from '../components/TestimonialCard';
 import { FAQItem } from '../components/FAQItem';
 import { CTAButtons } from '../components/CTAButtons';
 import { AnimatedSection, AnimatedText } from '../components/Animate';
-import { services } from '../data/services';
 import { testimonials } from '../data/testimonials';
 import { faqs } from '../data/faq';
 import { contactInfo } from '../data/contact';
 import './Home.css';
 
 export function Home() {
-  const mainServices = services.slice(0, 6);
   const mainFaqs = faqs.slice(0, 4);
 
   return (
@@ -27,45 +25,7 @@ export function Home() {
       />
 
       {/* Servizi Principali */}
-      <section id="servizi" className="section">
-        <div className="container">
-          <AnimatedSection animation="fade-up" className="section__header">
-            <span className="section__label">I miei servizi</span>
-            <AnimatedText 
-              text="Trattamenti osteopatici personalizzati" 
-              as="h2" 
-              className="section__title"
-              splitBy="word"
-              animation="fade-up"
-              staggerDelay={0.04}
-            />
-            <p className="section__description">
-              Ogni persona è unica. Per questo creo percorsi terapeutici su misura, 
-              combinando diverse tecniche osteopatiche per rispondere alle tue specifiche esigenze.
-            </p>
-          </AnimatedSection>
-          <div className="services-grid stagger-children">
-            {mainServices.map((service, index) => (
-              <AnimatedSection 
-                key={service.id} 
-                animation="scale-up" 
-                delay={index * 0.1}
-                className="hover-lift"
-              >
-                <ServiceCard service={service} />
-              </AnimatedSection>
-            ))}
-          </div>
-          <AnimatedSection animation="fade-up" delay={0.3} className="section__footer">
-            <Link to="/servizi" className="btn btn--outline smooth-underline">
-              Vedi tutti i servizi
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
+      <ServicesShowcase />
 
       {/* Cosa Aspettarsi */}
       <section className="section section--alt">

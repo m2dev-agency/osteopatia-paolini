@@ -2,13 +2,6 @@
   overflow-x: hidden;
 }
 
-/* Services Grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
 /* Steps */
 .steps {
   display: grid;
@@ -227,10 +220,6 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .steps {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -268,10 +257,6 @@
 }
 
 @media (max-width: 600px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
   .steps {
     grid-template-columns: 1fr;
     gap: 1rem;
