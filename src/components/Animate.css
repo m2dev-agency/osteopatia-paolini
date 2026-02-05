@@ -1,0 +1,553 @@
+/* ============================================
+   AWWWARDS-LEVEL ANIMATION SYSTEM
+   Smooth, bidirectional, performant animations
+   ============================================ */
+
+/* Base animation properties */
+.animate {
+  --animation-delay: 0s;
+  --animation-duration: 0.8s;
+  --animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  
+  will-change: transform, opacity, filter, clip-path;
+  transition: 
+    transform var(--animation-duration) var(--animation-easing) var(--animation-delay),
+    opacity var(--animation-duration) var(--animation-easing) var(--animation-delay),
+    filter var(--animation-duration) var(--animation-easing) var(--animation-delay),
+    clip-path var(--animation-duration) var(--animation-easing) var(--animation-delay);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate {
+    transition: opacity 0.3s ease var(--animation-delay);
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+  
+  .animate:not(.animate--visible) {
+    opacity: 0;
+  }
+  
+  .animate.animate--visible {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   FADE ANIMATIONS
+   ============================================ */
+
+.animate--fade {
+  opacity: 0;
+}
+
+.animate--fade.animate--visible {
+  opacity: 1;
+}
+
+.animate--fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.animate--fade-up.animate--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate--fade-down {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+
+.animate--fade-down.animate--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate--fade-left {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.animate--fade-left.animate--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate--fade-right {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.animate--fade-right.animate--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
+   SCALE ANIMATIONS
+   ============================================ */
+
+.animate--scale {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.animate--scale.animate--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate--scale-up {
+  opacity: 0;
+  transform: scale(0.85) translateY(40px);
+}
+
+.animate--scale-up.animate--visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ============================================
+   BLUR ANIMATIONS
+   ============================================ */
+
+.animate--blur {
+  opacity: 0;
+  filter: blur(20px);
+}
+
+.animate--blur.animate--visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.animate--blur-up {
+  opacity: 0;
+  filter: blur(15px);
+  transform: translateY(40px);
+}
+
+.animate--blur-up.animate--visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* ============================================
+   SLIDE ANIMATIONS (no opacity change)
+   ============================================ */
+
+.animate--slide-up {
+  transform: translateY(100%);
+}
+
+.animate--slide-up.animate--visible {
+  transform: translateY(0);
+}
+
+.animate--slide-down {
+  transform: translateY(-100%);
+}
+
+.animate--slide-down.animate--visible {
+  transform: translateY(0);
+}
+
+.animate--slide-left {
+  transform: translateX(100%);
+}
+
+.animate--slide-left.animate--visible {
+  transform: translateX(0);
+}
+
+.animate--slide-right {
+  transform: translateX(-100%);
+}
+
+.animate--slide-right.animate--visible {
+  transform: translateX(0);
+}
+
+/* ============================================
+   CLIP ANIMATIONS
+   ============================================ */
+
+.animate--clip-up {
+  clip-path: inset(100% 0 0 0);
+}
+
+.animate--clip-up.animate--visible {
+  clip-path: inset(0 0 0 0);
+}
+
+.animate--clip-left {
+  clip-path: inset(0 100% 0 0);
+}
+
+.animate--clip-left.animate--visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ============================================
+   FLIP ANIMATIONS
+   ============================================ */
+
+.animate--flip-up {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(45deg) translateY(40px);
+  transform-origin: center bottom;
+}
+
+.animate--flip-up.animate--visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0) translateY(0);
+}
+
+/* ============================================
+   ROTATE ANIMATIONS
+   ============================================ */
+
+.animate--rotate-in {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.9);
+}
+
+.animate--rotate-in.animate--visible {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* ============================================
+   BOUNCE ANIMATIONS
+   ============================================ */
+
+.animate--bounce-in {
+  opacity: 0;
+  transform: scale(0.3);
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate--bounce-in.animate--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   ANIMATED TEXT
+   ============================================ */
+
+.animated-text {
+  display: inline;
+  overflow: hidden;
+}
+
+.animated-text__part {
+  display: inline-block;
+}
+
+/* ============================================
+   PARALLAX
+   ============================================ */
+
+.parallax {
+  --parallax-speed: 0.3;
+  --parallax-direction: vertical;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ============================================
+   SPECIAL EFFECTS - MAGNETIC HOVER
+   ============================================ */
+
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   SMOOTH SCROLL REVEAL CONTAINER
+   ============================================ */
+
+.reveal-container {
+  overflow: hidden;
+}
+
+.reveal-container .animate--slide-up,
+.reveal-container .animate--clip-up {
+  display: block;
+}
+
+/* ============================================
+   STAGGER CHILDREN UTILITY
+   ============================================ */
+
+.stagger-children > * {
+  --stagger-delay: 0.08s;
+}
+
+.stagger-children > *:nth-child(1) { --animation-delay: calc(var(--stagger-delay) * 0); }
+.stagger-children > *:nth-child(2) { --animation-delay: calc(var(--stagger-delay) * 1); }
+.stagger-children > *:nth-child(3) { --animation-delay: calc(var(--stagger-delay) * 2); }
+.stagger-children > *:nth-child(4) { --animation-delay: calc(var(--stagger-delay) * 3); }
+.stagger-children > *:nth-child(5) { --animation-delay: calc(var(--stagger-delay) * 4); }
+.stagger-children > *:nth-child(6) { --animation-delay: calc(var(--stagger-delay) * 5); }
+.stagger-children > *:nth-child(7) { --animation-delay: calc(var(--stagger-delay) * 6); }
+.stagger-children > *:nth-child(8) { --animation-delay: calc(var(--stagger-delay) * 7); }
+.stagger-children > *:nth-child(9) { --animation-delay: calc(var(--stagger-delay) * 8); }
+.stagger-children > *:nth-child(10) { --animation-delay: calc(var(--stagger-delay) * 9); }
+
+/* ============================================
+   LINE REVEAL EFFECT (for headings)
+   ============================================ */
+
+.line-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.line-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg, #fff);
+  transform: translateX(-101%);
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.line-reveal.animate--visible::after {
+  transform: translateX(101%);
+}
+
+/* ============================================
+   COUNTER ANIMATION (for numbers)
+   ============================================ */
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count-up {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.count-up__number {
+  display: inline-block;
+  animation: countUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-play-state: paused;
+}
+
+.count-up.animate--visible .count-up__number {
+  animation-play-state: running;
+}
+
+/* ============================================
+   CURSOR GLOW EFFECT
+   ============================================ */
+
+.glow-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-on-hover::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--color-primary-rgb, 45, 90, 69), 0.3) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-on-hover:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   SPLIT TEXT LINE ANIMATION
+   ============================================ */
+
+.split-lines {
+  overflow: hidden;
+}
+
+.split-lines__line {
+  display: block;
+  overflow: hidden;
+}
+
+.split-lines__line-inner {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.split-lines.animate--visible .split-lines__line-inner {
+  transform: translateY(0);
+}
+
+.split-lines__line:nth-child(2) .split-lines__line-inner {
+  transition-delay: 0.1s;
+}
+
+.split-lines__line:nth-child(3) .split-lines__line-inner {
+  transition-delay: 0.2s;
+}
+
+.split-lines__line:nth-child(4) .split-lines__line-inner {
+  transition-delay: 0.3s;
+}
+
+/* ============================================
+   IMAGE REVEAL
+   ============================================ */
+
+.image-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary, #2D5A45);
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1) var(--animation-delay, 0s);
+}
+
+.image-reveal.animate--visible::after {
+  transform: scaleX(0);
+}
+
+.image-reveal img,
+.image-reveal video {
+  transform: scale(1.3);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) var(--animation-delay, 0s);
+}
+
+.image-reveal.animate--visible img,
+.image-reveal.animate--visible video {
+  transform: scale(1);
+}
+
+/* ============================================
+   HOVER LIFT EFFECT
+   ============================================ */
+
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================
+   SMOOTH UNDERLINE
+   ============================================ */
+
+.smooth-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.smooth-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.smooth-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ============================================
+   MARQUEE EFFECT
+   ============================================ */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee__content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+/* ============================================
+   GRAIN OVERLAY (subtle texture)
+   ============================================ */
+
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: -200%;
+  width: 400%;
+  height: 400%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 0.5s steps(1) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}

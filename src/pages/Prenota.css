@@ -1,0 +1,163 @@
+.prenota__grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.prenota__options h2,
+.prenota__form-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+.prenota__form-section > p {
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
+}
+
+.prenota__option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.prenota__option:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.prenota__option--whatsapp {
+  border-color: #25D366;
+  background: rgba(37, 211, 102, 0.05);
+}
+
+.prenota__option--whatsapp .prenota__option-icon {
+  color: #25D366;
+}
+
+.prenota__option-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border-radius: 12px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.prenota__option--whatsapp .prenota__option-icon {
+  background: rgba(37, 211, 102, 0.1);
+}
+
+.prenota__option-content {
+  flex-grow: 1;
+}
+
+.prenota__option-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.prenota__option-content p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.prenota__option > svg {
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+/* Info Box */
+.prenota__info {
+  background: var(--color-bg-alt);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.prenota__info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.prenota__info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.prenota__info li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.prenota__info li:last-child {
+  border-bottom: none;
+}
+
+.prenota__info strong {
+  color: var(--color-text);
+}
+
+.prenota__link {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.prenota__link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .prenota__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prenota__options {
+    order: 2;
+  }
+
+  .prenota__form-section {
+    order: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .prenota__option {
+    padding: 1rem;
+  }
+
+  .prenota__option-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .prenota__option-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}

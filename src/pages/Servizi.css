@@ -1,0 +1,139 @@
+.servizi-page .section__header {
+  margin-bottom: 3rem;
+}
+
+.servizi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.servizi-grid--large {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Pricing */
+.pricing-info h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--color-text);
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.pricing-card {
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 40px rgba(45, 90, 69, 0.1);
+}
+
+.pricing-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.pricing-card__price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.pricing-card li {
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pricing-card li:last-child {
+  border-bottom: none;
+}
+
+.pricing-note {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--color-bg-alt);
+  border-radius: 12px;
+}
+
+.pricing-note p {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* CTA */
+.servizi-page .section--cta {
+  background: var(--color-primary);
+  color: white;
+}
+
+.servizi-page .cta-section {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.servizi-page .cta-section h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.servizi-page .cta-section p {
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .servizi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .servizi-grid--large {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .servizi-grid {
+    grid-template-columns: 1fr;
+  }
+}

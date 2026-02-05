@@ -1,10 +1,90 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>m2dev-stack-starter</title>
+    <meta name="description" content="Studio di Osteopatia della Dott.ssa Martina Paolini a Chieti Scalo. Trattamenti osteopatici per adulti, bambini e gravidanza. Prenota la tua visita." />
+    <meta name="keywords" content="osteopata Chieti, osteopatia Chieti Scalo, fisioterapia, cervicalgia, lombalgia, cefalea, osteopatia gravidanza" />
+    <meta name="author" content="Dott.ssa Martina Paolini" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Studio Osteopatia Dott.ssa Martina Paolini | Chieti Scalo" />
+    <meta property="og:description" content="Trattamenti osteopatici personalizzati per ritrovare il benessere. Prenota la tua visita a Chieti Scalo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    
+    <!-- Preconnect per performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    
+    <title>Studio Osteopatia Dott.ssa Martina Paolini | Chieti Scalo</title>
+    
+    <!-- Dati Strutturati LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "@id": "https://osteopatia-paolini.it",
+      "name": "Studio di Osteopatia Dott.ssa Martina Paolini",
+      "description": "Studio di osteopatia e fisioterapia a Chieti Scalo. Trattamenti per adulti, bambini e gravidanza.",
+      "url": "https://osteopatia-paolini.it",
+      "telephone": "+39 333 1234567",
+      "email": "info@osteopatia-paolini.it",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Andrea Delitio 7",
+        "addressLocality": "Chieti Scalo",
+        "addressRegion": "Abruzzo",
+        "postalCode": "66100",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.3498,
+        "longitude": 14.1463
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ],
+      "priceRange": "€€",
+      "paymentAccepted": ["Cash", "Credit Card", "Satispay", "PayPal"],
+      "medicalSpecialty": "Osteopathic",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servizi Osteopatici",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Prima Visita Osteopatica",
+              "description": "Valutazione completa e primo trattamento"
+            },
+            "price": "60",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Visita Osteopatica",
+              "description": "Trattamento osteopatico di controllo"
+            },
+            "price": "40",
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

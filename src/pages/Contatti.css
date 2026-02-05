@@ -1,0 +1,189 @@
+.contatti__grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contatti__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contatti__card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+}
+
+.contatti__card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
+}
+
+.contatti__card address {
+  font-style: normal;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.contatti__card address p {
+  margin: 0.25rem 0;
+}
+
+.contatti__card address strong {
+  color: var(--color-text);
+}
+
+.contatti__directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.contatti__directions:hover {
+  text-decoration: underline;
+}
+
+.contatti__methods {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contatti__method {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-bg);
+  border-radius: 10px;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contatti__method:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+.contatti__method--whatsapp {
+  background: rgba(37, 211, 102, 0.1);
+  color: #25D366;
+}
+
+.contatti__method--whatsapp:hover {
+  background: rgba(37, 211, 102, 0.2);
+}
+
+.contatti__hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contatti__hours > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contatti__hours > div:last-child {
+  border-bottom: none;
+}
+
+.contatti__hours span {
+  color: var(--color-text-light);
+}
+
+.contatti__hours strong {
+  color: var(--color-primary);
+}
+
+.contatti__payments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.contatti__payment {
+  padding: 0.4rem 0.75rem;
+  background: var(--color-bg);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.contatti__note {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Form Wrapper */
+.contatti__form-wrapper h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.contatti__form-wrapper > p {
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
+}
+
+/* Map Section */
+.contatti__map-section {
+  text-align: center;
+}
+
+.contatti__parking {
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
+}
+
+.contatti__map {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 450px;
+}
+
+@media (max-width: 1024px) {
+  .contatti__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contatti__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contatti__info {
+    grid-template-columns: 1fr;
+  }
+
+  .contatti__card {
+    padding: 1.5rem;
+  }
+
+  .contatti__map {
+    height: 300px;
+  }
+}
