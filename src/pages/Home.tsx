@@ -205,7 +205,7 @@ export function Home() {
             src={contactInfo.mapEmbedUrl}
             width="100%"
             height="100%"
-            style={{ border: 0 }}
+            style={{ border: 0, pointerEvents: 'none' }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -217,6 +217,7 @@ export function Home() {
         <div className="container">
           <div className="studio-section__content">
             <AnimatedSection animation="fade-up" className="studio-section__header">
+              <p className="studio-section__eyebrow">Vieni a trovarmi</p>
               <AnimatedText
                 text="Lo studio"
                 as="h2"
@@ -225,68 +226,68 @@ export function Home() {
                 animation="blur-up"
                 staggerDelay={0.06}
               />
-              <p className="studio-section__location">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                Chieti Scalo
-              </p>
+              <div className="studio-section__location-pill">
+                <span className="studio-section__location-dot" />
+                Chieti Scalo, Abruzzo
+              </div>
             </AnimatedSection>
 
             <div className="studio-cards">
               <AnimatedSection animation="fade-up" delay={0.1} className="studio-card">
-                <div className="studio-card__icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
+                <div className="studio-card__left">
+                  <div className="studio-card__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  </div>
+                  <div className="studio-card__body">
+                    <h3>Indirizzo</h3>
+                    <p>{contactInfo.address.full}</p>
+                  </div>
+                </div>
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(contactInfo.address.full)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="studio-card__directions"
+                  aria-label="Apri indicazioni stradali"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11"/>
                   </svg>
-                </div>
-                <div className="studio-card__body">
-                  <h3>Indirizzo</h3>
-                  <p>{contactInfo.address.full}</p>
-                </div>
+                  <span>Indicazioni</span>
+                </a>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-up" delay={0.2} className="studio-card">
-                <div className="studio-card__icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
-                  </svg>
-                </div>
-                <div className="studio-card__body">
-                  <h3>Orari</h3>
-                  <p><strong>{contactInfo.hours.weekdays.days}</strong><br/>{contactInfo.hours.weekdays.hours}</p>
-                  <p><strong>{contactInfo.hours.saturday.days}</strong><br/>{contactInfo.hours.saturday.hours}</p>
+                <div className="studio-card__left">
+                  <div className="studio-card__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                  </div>
+                  <div className="studio-card__body">
+                    <h3>Orari</h3>
+                    <p><strong>{contactInfo.hours.weekdays.days}</strong> — {contactInfo.hours.weekdays.hours}</p>
+                    <p><strong>{contactInfo.hours.saturday.days}</strong> — {contactInfo.hours.saturday.hours}</p>
+                  </div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-up" delay={0.3} className="studio-card">
-                <div className="studio-card__icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                  </svg>
-                </div>
-                <div className="studio-card__body">
-                  <h3>Contatti</h3>
-                  <p><a href={`tel:${contactInfo.phone}`}>{contactInfo.phoneDisplay}</a></p>
-                  <p><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection animation="fade-up" delay={0.4} className="studio-card">
-                <div className="studio-card__icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="1" y="3" width="15" height="13"/>
-                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-                    <circle cx="5.5" cy="18.5" r="2.5"/>
-                    <circle cx="18.5" cy="18.5" r="2.5"/>
-                  </svg>
-                </div>
-                <div className="studio-card__body">
-                  <h3>Parcheggio</h3>
-                  <p>{contactInfo.parking}</p>
+                <div className="studio-card__left">
+                  <div className="studio-card__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                  </div>
+                  <div className="studio-card__body">
+                    <h3>Contatti</h3>
+                    <p><a href={`tel:${contactInfo.phone}`}>{contactInfo.phoneDisplay}</a></p>
+                    <p><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
+                  </div>
                 </div>
               </AnimatedSection>
             </div>
