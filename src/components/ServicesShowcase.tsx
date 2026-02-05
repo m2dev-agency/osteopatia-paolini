@@ -22,7 +22,6 @@ export function ServicesShowcase() {
 
       <div className="container">
         <AnimatedSection animation="fade-up" className="services-showcase__header">
-          <span className="section__label">Servizi</span>
           <AnimatedText
             text="Come posso aiutarti"
             as="h2"

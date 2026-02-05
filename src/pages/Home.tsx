@@ -31,7 +31,6 @@ export function Home() {
       <section className="section section--alt">
         <div className="container">
           <AnimatedSection animation="fade-up" className="section__header">
-            <span className="section__label">Come funziona</span>
             <AnimatedText 
               text="Cosa aspettarsi dalla visita" 
               as="h2" 
@@ -88,7 +87,6 @@ export function Home() {
         <div className="container">
           <div className="about-intro">
             <AnimatedSection animation="fade-right" className="about-intro__content">
-              <span className="section__label">Chi Sono</span>
               <AnimatedText 
                 text="Dott.ssa Martina Paolini" 
                 as="h2" 
@@ -125,39 +123,48 @@ export function Home() {
       </section>
 
       {/* Testimonianze */}
-      <section className="section section--alt">
+      <section className="testimonials-section">
+        <div className="testimonials-section__bg-shape" />
         <div className="container">
-          <AnimatedSection animation="fade-up" className="section__header">
-            <span className="section__label">Cosa dicono di me</span>
+          <AnimatedSection animation="fade-up" className="testimonials-section__header">
             <AnimatedText 
-              text="Testimonianze dei pazienti" 
+              text="Cosa dicono i pazienti" 
               as="h2" 
-              className="section__title"
+              className="testimonials-section__title"
               splitBy="word"
-              animation="fade-up"
+              animation="blur-up"
               staggerDelay={0.05}
             />
-            <p className="section__description">
-              La soddisfazione dei miei pazienti è la migliore conferma del mio lavoro. 
-              Leggi le loro esperienze.
+            <p className="testimonials-section__subtitle">
+              La soddisfazione di chi si è affidato a me è la migliore conferma del mio lavoro.
             </p>
           </AnimatedSection>
-          <div className="testimonials-grid">
-            {testimonials.slice(0, 3).map((testimonial, index) => (
-              <AnimatedSection 
-                key={testimonial.id} 
-                animation="flip-up" 
-                delay={index * 0.15}
-                className="hover-lift"
+
+          <div className="testimonials-masonry">
+            {testimonials.slice(0, 6).map((testimonial, index) => (
+              <AnimatedSection
+                key={testimonial.id}
+                animation="fade-up"
+                delay={index * 0.12}
+                className="testimonial-item"
               >
                 <TestimonialCard testimonial={testimonial} />
               </AnimatedSection>
             ))}
           </div>
-          <AnimatedSection animation="scale" delay={0.4}>
-            <div className="testimonials-badge">
-              <span className="testimonials-badge__icon">⭐</span>
-              <span>29 recensioni su MioDottore</span>
+
+          <AnimatedSection animation="fade-up" delay={0.5} className="testimonials-section__footer">
+            <div className="testimonials-trust">
+              <div className="testimonials-trust__stars">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="var(--color-primary)" stroke="none">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                ))}
+              </div>
+              <span className="testimonials-trust__text">
+                <strong>29 recensioni</strong> su MioDottore
+              </span>
             </div>
           </AnimatedSection>
         </div>
@@ -167,7 +174,6 @@ export function Home() {
       <section className="section">
         <div className="container">
           <AnimatedSection animation="fade-up" className="section__header">
-            <span className="section__label">Domande frequenti</span>
             <AnimatedText 
               text="Hai delle domande?" 
               as="h2" 
@@ -196,7 +202,6 @@ export function Home() {
       <section className="section section--alt">
         <div className="container">
           <AnimatedSection animation="fade-up" className="section__header">
-            <span className="section__label">Dove trovarmi</span>
             <AnimatedText 
               text="Lo studio a Chieti Scalo" 
               as="h2" 

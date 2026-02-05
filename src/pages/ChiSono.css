@@ -1,191 +1,562 @@
-.chi-sono__content {
+/* ===================================
+   CHI SONO — Professional page
+   =================================== */
+
+/* ---- HERO ---- */
+.chi-sono-hero {
+  position: relative;
+  padding: 8rem 0 5rem;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.chi-sono-hero__bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.35;
+}
+
+.chi-sono-hero__bg-shape--1 {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(var(--color-primary-rgb), 0.14) 0%, transparent 70%);
+  top: -250px;
+  left: -150px;
+}
+
+.chi-sono-hero__bg-shape--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(var(--color-primary-rgb), 0.1) 0%, transparent 70%);
+  bottom: -100px;
+  right: -100px;
+}
+
+.chi-sono-hero__grid {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 1fr 420px;
   gap: 4rem;
-  align-items: start;
+  align-items: center;
 }
 
-.chi-sono__image {
-  position: sticky;
-  top: 100px;
+.chi-sono-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
 }
 
-.chi-sono__placeholder {
+.chi-sono-hero__role {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.chi-sono-hero__intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+}
+
+/* Credentials bar */
+.chi-sono-hero__credentials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.chi-sono-hero__credential {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--color-white);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.chi-sono-hero__credential-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+.chi-sono-hero__credential-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+/* Portrait */
+.chi-sono-hero__portrait {
+  position: relative;
+}
+
+.chi-sono-hero__portrait-frame {
+  position: relative;
+}
+
+.chi-sono-hero__portrait-placeholder {
   aspect-ratio: 3/4;
-  background: linear-gradient(135deg, #e8f0ec 0%, #d8e8e0 100%);
-  border-radius: 20px;
+  background: linear-gradient(160deg, #e8f0ec 0%, #d0e2d8 50%, #c2d9ce 100%);
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   color: var(--color-primary);
+  box-shadow: 
+    0 30px 80px -20px rgba(var(--color-primary-rgb), 0.2),
+    0 0 0 1px rgba(var(--color-primary-rgb), 0.05);
 }
 
-.chi-sono__placeholder span {
-  font-size: 0.9rem;
+.chi-sono-hero__portrait-placeholder span {
+  font-size: 0.85rem;
   font-weight: 500;
+  opacity: 0.7;
 }
 
-.chi-sono__text h2 {
+.chi-sono-hero__badge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(var(--color-primary-rgb), 0.35);
+  z-index: 2;
+}
+
+.chi-sono-hero__badge-text {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.chi-sono-hero__badge-sub {
+  font-size: 0.6rem;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+/* ---- BIO SECTION ---- */
+.chi-sono-bio {
+  padding: 6rem 0;
+}
+
+.chi-sono-bio__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.chi-sono-bio__eyebrow {
+  display: inline-block;
+  position: relative;
+  padding-left: 2rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.chi-sono-bio__eyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1.25rem;
+  height: 1px;
+  background: var(--color-primary);
+}
+
+.chi-sono-bio__heading {
   font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.chi-sono-bio__right {
+  padding-top: 0.5rem;
+}
+
+.chi-sono-bio__lead {
+  font-size: 1.125rem;
+  line-height: 1.8;
   color: var(--color-text);
   margin-bottom: 1.5rem;
+  font-weight: 400;
 }
 
-.chi-sono__text p {
-  font-size: 1.1rem;
+.chi-sono-bio__right p {
+  font-size: 1.05rem;
   line-height: 1.8;
   color: var(--color-text-light);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
-.chi-sono__text strong {
+.chi-sono-bio__right strong {
   color: var(--color-text);
+  font-weight: 600;
 }
 
-/* Values */
-.chi-sono__values {
+/* ---- PHILOSOPHY ---- */
+.chi-sono-philosophy {
+  padding: 6rem 0;
+  background: var(--color-bg);
+}
+
+.chi-sono-philosophy__header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+}
+
+.chi-sono-philosophy__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-.value-card {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
+.philosophy-card {
+  position: relative;
+  padding: 2rem 1.5rem;
+  background: var(--color-white);
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  transition: 
+    border-color 0.4s var(--ease-out-expo),
+    box-shadow 0.4s var(--ease-out-expo),
+    transform 0.4s var(--ease-out-expo);
 }
 
-.value-card__icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.philosophy-card:hover {
+  border-color: rgba(var(--color-primary-rgb), 0.25);
+  box-shadow: 0 16px 48px -12px rgba(var(--color-primary-rgb), 0.12);
+  transform: translateY(-4px);
 }
 
-.value-card h3 {
+.philosophy-card__number {
+  display: block;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 1rem;
+  opacity: 0.2;
+  transition: opacity 0.4s var(--ease-out-expo);
+}
+
+.philosophy-card:hover .philosophy-card__number {
+  opacity: 0.5;
+}
+
+.philosophy-card__line {
+  width: 2rem;
+  height: 2px;
+  background: var(--color-primary);
+  margin-bottom: 1.25rem;
+  border-radius: 1px;
+  transition: width 0.4s var(--ease-out-expo);
+}
+
+.philosophy-card:hover .philosophy-card__line {
+  width: 3rem;
+}
+
+.philosophy-card__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--color-text);
   margin-bottom: 0.75rem;
 }
 
-.value-card p {
-  font-size: 0.95rem;
+.philosophy-card__text {
+  font-size: 0.9rem;
+  line-height: 1.65;
   color: var(--color-text-light);
-  line-height: 1.6;
   margin: 0;
 }
 
-/* Formation */
-.chi-sono__formation {
+/* ---- COMPETENZE ---- */
+.chi-sono-competenze {
+  padding: 6rem 0;
+}
+
+.chi-sono-competenze__header {
   text-align: center;
+  max-width: 620px;
+  margin: 0 auto 4rem;
 }
 
-.chi-sono__formation .section__title {
-  margin-bottom: 3rem;
-}
-
-.formation-grid {
+.competenze-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  text-align: left;
 }
 
-.formation-item {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
+.competenze-column {
+  background: var(--color-bg);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
   border: 1px solid var(--color-border);
+  transition: 
+    border-color 0.4s var(--ease-out-expo),
+    box-shadow 0.4s var(--ease-out-expo);
 }
 
-.formation-item h3 {
+.competenze-column:hover {
+  border-color: rgba(var(--color-primary-rgb), 0.2);
+  box-shadow: 0 12px 40px -10px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.competenze-column__title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1.25rem;
   color: var(--color-text);
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.formation-item ul {
+.competenze-column__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.competenze-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.formation-item li {
-  padding: 0.5rem 0;
+.competenze-list__item {
+  position: relative;
+  padding: 0.6rem 0 0.6rem 1.5rem;
   font-size: 0.95rem;
   color: var(--color-text-light);
-  border-bottom: 1px solid var(--color-border);
-  padding-left: 1.5rem;
-  position: relative;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.06);
+  transition: color 0.3s var(--ease-out-expo);
 }
 
-.formation-item li:last-child {
+.competenze-list__item:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
-.formation-item li::before {
-  content: '→';
+.competenze-list__item::before {
+  content: '';
   position: absolute;
   left: 0;
-  color: var(--color-primary);
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.35;
+  transform: translateY(-50%);
+  transition: opacity 0.3s var(--ease-out-expo);
 }
 
-/* CTA */
-.chi-sono .section--cta {
+.competenze-list__item:hover {
+  color: var(--color-text);
+}
+
+.competenze-list__item:hover::before {
+  opacity: 1;
+}
+
+/* ---- CTA ---- */
+.chi-sono-cta {
+  padding: 5rem 0;
   background: var(--color-primary);
 }
 
-.chi-sono .cta-section {
+.chi-sono-cta__inner {
   text-align: center;
-  max-width: 600px;
+  max-width: 560px;
   margin: 0 auto;
 }
 
-.chi-sono .cta-section h2 {
+.chi-sono-cta__title {
   font-family: var(--font-display);
-  font-size: 2rem;
-  color: white;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
   margin-bottom: 1rem;
 }
 
-.chi-sono .cta-section p {
-  color: rgba(255, 255, 255, 0.9);
+.chi-sono-cta__text {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
+.chi-sono-cta .cta-buttons__primary {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+.chi-sono-cta .cta-buttons__primary:hover {
+  background: #f0f0f0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.chi-sono-cta .cta-buttons__phone {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.chi-sono-cta .cta-buttons__phone:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==================
+   RESPONSIVE
+   ================== */
+
 @media (max-width: 1024px) {
-  .chi-sono__content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .chi-sono-hero__grid {
+    grid-template-columns: 1fr 340px;
+    gap: 3rem;
   }
 
-  .chi-sono__image {
-    position: static;
+  .chi-sono-philosophy__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .competenze-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .chi-sono-hero {
+    padding: 6rem 0 3.5rem;
+  }
+
+  .chi-sono-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .chi-sono-hero__portrait {
+    order: -1;
     max-width: 300px;
     margin: 0 auto;
   }
 
-  .chi-sono__values {
-    grid-template-columns: repeat(2, 1fr);
+  .chi-sono-hero__credentials {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .formation-grid {
+  .chi-sono-bio {
+    padding: 4rem 0;
+  }
+
+  .chi-sono-bio__grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .chi-sono-philosophy {
+    padding: 4rem 0;
+  }
+
+  .chi-sono-philosophy__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .chi-sono-competenze {
+    padding: 4rem 0;
+  }
+
+  .chi-sono-cta {
+    padding: 4rem 0;
   }
 }
 
-@media (max-width: 600px) {
-  .chi-sono__values {
+@media (max-width: 480px) {
+  .chi-sono-hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .chi-sono-hero__credentials {
     grid-template-columns: 1fr;
   }
 
-  .value-card {
-    padding: 1.5rem;
+  .chi-sono-philosophy__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .chi-sono-hero__badge {
+    width: 64px;
+    height: 64px;
+    bottom: -10px;
+    right: -10px;
+  }
+
+  .chi-sono-hero__badge-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-card,
+  .philosophy-card__number,
+  .philosophy-card__line,
+  .competenze-column,
+  .competenze-list__item,
+  .competenze-list__item::before {
+    transition: none !important;
   }
 }
